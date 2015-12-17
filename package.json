@@ -2,7 +2,7 @@
   "name": "geojson-vt",
   "version": "2.1.8",
   "description": "Slice GeoJSON data into vector tiles efficiently",
-  "homepage": "https://github.com/mapbox/geojson-vt",
+  "homepage": "https://github.com/tuif/geojson-vt",
   "keywords": [
     "spatial",
     "geojson",
@@ -12,7 +12,7 @@
   "author": "Vladimir Agafonkin",
   "repository": {
     "type": "git",
-    "url": "git://github.com/mapbox/geojson-vt.git"
+    "url": "git://github.com/tuif/geojson-vt.git"
   },
   "main": "src/index.js",
   "devDependencies": {
