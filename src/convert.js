@@ -100,7 +100,8 @@ function projectPoint(p) {
     y = y < 0 ? 0 :
         y > 1 ? 1 : y;
 
-    return [x, y, 0];
+    return [x, y, 0].concat(p);
+    //return [x, y, 0];
 }
 
 // calculate area and length of the poly
