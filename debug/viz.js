@@ -1,7 +1,8 @@
 'use strict';
 
 var options = {
-        debug: 1
+        debug: 1,
+        maxZoom: 18
     },
 
     padding = 8 / 512,
@@ -141,7 +142,7 @@ function drawTile() {
 }
 
 canvas.onclick = function (e) {
-    if (!tileIndex || z === 14) return;
+    if (!tileIndex || z === 18) return;
 
     var mouseX = e.layerX - 10,
         mouseY = e.layerY - 10,

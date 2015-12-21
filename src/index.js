@@ -207,10 +207,23 @@ function toID(z, x, y) {
 }
 
 function intersectX(a, b, x) {
-    return [x, (x - a[0]) * (b[1] - a[1]) / (b[0] - a[0]) + a[1], 1];
+    // 对于非坐标数据做线性
+    var result = [];
+    for (var i = 0; i < a.length; i ++) {
+        result.push((x - a[0]) * (b[i] - a[i]) / (b[0] - a[0]) + a[i])
+    }
+    result[2] = 1;
+    return result;
+    //return [x, (x - a[0]) * (b[1] - a[1]) / (b[0] - a[0]) + a[1], 1];
 }
 function intersectY(a, b, y) {
-    return [(y - a[1]) * (b[0] - a[0]) / (b[1] - a[1]) + a[0], y, 1];
+    var result = [];
+    for (var i = 0; i < a.length; i ++) {
+        result.push((y - a[1]) * (b[i] - a[i]) / (b[1] - a[1]) + a[i])
+    }
+    result[2] = 1;
+    return result;
+    //return [(y - a[1]) * (b[0] - a[0]) / (b[1] - a[1]) + a[0], y, 1];
 }
 
 function extend(dest, src) {
