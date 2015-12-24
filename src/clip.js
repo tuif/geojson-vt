@@ -95,7 +95,7 @@ function clipGeometry(geometry, k1, k2, axis, intersect, closed) {
                     slice.push(intersect(a, b, k1), intersect(a, b, k2));
                     if (!closed) slice = newSlice(slices, slice, area, dist);
 
-                } else if (bk >= k1) slice.push(intersect(a, b, k1)); // ---|-->  |
+                } else if (bk > k1) slice.push(intersect(a, b, k1)); // ---|-->  |
 
             } else if (ak > k2) {
 
@@ -103,18 +103,22 @@ function clipGeometry(geometry, k1, k2, axis, intersect, closed) {
                     slice.push(intersect(a, b, k2), intersect(a, b, k1));
                     if (!closed) slice = newSlice(slices, slice, area, dist);
 
-                } else if (bk <= k2) slice.push(intersect(a, b, k2)); // |  <--|---
+                } else if (bk < k2) slice.push(intersect(a, b, k2)); // |  <--|---
 
             } else {
 
                 slice.push(a);
 
                 if (bk < k1) { // <--|---  |
-                    slice.push(intersect(a, b, k1));
+                    if (ak > k1) {
+                        slice.push(intersect(a, b, k1));
+                    }
                     if (!closed) slice = newSlice(slices, slice, area, dist);
 
                 } else if (bk > k2) { // |  ---|-->
-                    slice.push(intersect(a, b, k2));
+                    if (ak < k2) {
+                        slice.push(intersect(a, b, k2));
+                    }
                     if (!closed) slice = newSlice(slices, slice, area, dist);
                 }
                 // | --> |
