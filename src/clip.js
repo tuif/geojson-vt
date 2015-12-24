@@ -109,11 +109,11 @@ function clipGeometry(geometry, k1, k2, axis, intersect, closed) {
 
                 slice.push(a);
 
-                if (bk < k1) { // <--|---  |
+                if (bk < k1 && ak > k1) { // <--|---  |
                     slice.push(intersect(a, b, k1));
                     if (!closed) slice = newSlice(slices, slice, area, dist);
 
-                } else if (bk > k2) { // |  ---|-->
+                } else if (bk > k2 && ak < k2) { // |  ---|-->
                     slice.push(intersect(a, b, k2));
                     if (!closed) slice = newSlice(slices, slice, area, dist);
                 }

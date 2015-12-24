@@ -2,7 +2,8 @@
 
 var options = {
         debug: 1,
-        maxZoom: 18
+        maxZoom: 18,
+        buffer: 16
     },
 
     padding = 8 / 512,
